@@ -35,7 +35,8 @@ if(empty($_POST) == false) { //Teste si le champs est vide.
         } else {
             $a = $a+1;
         }
-    }
+        
+}
 
 
 if(isset($_POST['ddn']) == true) { //Teste si le champs est vide.
@@ -58,11 +59,28 @@ if(isset($_POST['situation']) == true) { //Teste si le champs est vide.
         }
         
     }
+    
+    if(empty($_POST) == false) {
+                
+        if($a == 7){
+            $Users = 'Users/' . $_SERVER['REMOTE_ADDR'] . '/';
+            mkdir($Users);
+        
+            $fichier = fopen($Users . 'reponse.txt', 'w');
+            fwrite($fichier, 'Date Heure: ' .  date('d/m/Y H:i:s')  .   PHP_EOL);
+            fwrite($fichier, 'Prenom: ' .      $_POST['prenom']     .   PHP_EOL);
+            fwrite($fichier, 'MDP: ' .         $_POST['pass']       .   PHP_EOL);
+            fwrite($fichier, 'Describ: ' .     $_POST['describ']    .   PHP_EOL);
+            fclose($fichier);
+            
+            $cheminTMP = $_FILES['picture']['tmp_name'];
+            $cheminNouveau = $Users . $_FILES['picture']['name'];
+            move_uploaded_file($cheminTMP, $cheminNouveau);
+        }
+        
+}
 function ecriture($contenu) {
-    file_put_contents("Users\contenu.txt", $contenu . "\r\n", FILE_APPEND);
+        file_put_contents("Users\contenu.txt", $contenu . "\r\n", FILE_APPEND);
 }
 
-if ($a == 7){
-    echo"MERCIIIIIII";
-}
 ?>
