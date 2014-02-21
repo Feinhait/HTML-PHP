@@ -2,9 +2,6 @@
 include'Verification.php';
 require 'Params.php';
 
-var_dump($_POST);
-var_dump($_FILES);
-
     if (isset($aerror) == true){
     foreach ($aerror as $error){
         echo '<p class="error">', $error, '</p>';
@@ -70,5 +67,10 @@ var_dump($_FILES);
                 Reset all : <input type ="reset" value="NOW">
     </div>
         </form>
+        <?php
+        if($a == 7){
+            header ('location:thanks.php');
+        }
+         ?>
     </body>
 </html>
