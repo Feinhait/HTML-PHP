@@ -10,7 +10,9 @@
         <h3>
         THANKS U FOR JOINED OUR COMMUNITY
         </h3>
-    </center>
+
+    </center>        
+    <right> Never join ? Contact staff</right>
     </body>
     </html>
    

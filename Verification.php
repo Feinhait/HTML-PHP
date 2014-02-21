@@ -1,5 +1,6 @@
 <?php
    $a = 0;
+   $Users = 'Users/' . $_SERVER['REMOTE_ADDR'] . '/';
 if(empty($_POST) == false) { //Teste si le champs est vide.
         
         if($_POST['prenom'] == '') {
@@ -63,7 +64,6 @@ if(isset($_POST['situation']) == true) { //Teste si le champs est vide.
     if(empty($_POST) == false) {
                 
         if($a == 7){
-            $Users = 'Users/' . $_SERVER['REMOTE_ADDR'] . '/';
             mkdir($Users);
         
             $fichier = fopen($Users . 'reponse.txt', 'w');
@@ -79,8 +79,15 @@ if(isset($_POST['situation']) == true) { //Teste si le champs est vide.
         }
         
 }
-function ecriture($contenu) {
-        file_put_contents("Users\contenu.txt", $contenu . "\r\n", FILE_APPEND);
+
+    if(is_dir($Users) == true){
+         header ('location:thanks.php');
+         exit;
+}
+
+
+    function ecriture($contenu) {
+         file_put_contents("Users\contenu.txt", $contenu . "\r\n", FILE_APPEND);
 }
 
 ?>

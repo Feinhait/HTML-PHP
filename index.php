@@ -7,6 +7,7 @@ require 'Params.php';
         echo '<p class="error">', $error, '</p>';
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html>
