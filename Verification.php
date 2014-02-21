@@ -31,5 +31,5 @@ if(isset($_POST['situation']) == true) { //Teste si le champs est vide.
         }
         
     }
-       
+       if ($aerror)
 ?>
