@@ -1,5 +1,6 @@
 <?php
 include'Verification.php';
+require 'Params.php';
 
 var_dump($_POST);
 var_dump($_FILES);
@@ -23,7 +24,7 @@ var_dump($_FILES);
         <form method="post" enctype="multipart/form-data">
     <div>
                 Name :
-                <input type="text" name="prenom" value="<?php if(isset($_POST['prenom'])) echo $_POST['prenom']; ?>"/>
+                <input type="text" name="prenom" value="<?php restore('prenom') ?>"/>
     </div>
     <div>
                 Password :
@@ -31,7 +32,7 @@ var_dump($_FILES);
     </div>
     <div>
                 <label>Birth :</label>
-                <input type='date' name="ddn" value="<?php if(isset($_POST['ddn'])) echo $_POST['ddn']; ?>"/>
+                <input type='date' name="ddn" value="<?php restore('ddn') ?>"/>
     </div>
     <div>
                 <?php
@@ -49,18 +50,18 @@ var_dump($_FILES);
     </div>
     <div>
                 Since :
-                <input type="radio" value="X" name="radio" value="X"/><label>X</label>
-                <input type="radio" value="1-6m" name="radio" value="1"/><label>1-6months</label>
-                <input type="radio" value="6-12m" name="radio" value="6"/><label>6-12months</label>            
-                <input type="radio" value="1y" name="radio" value="1y"/><label>More than 1year</label>         
+                <input type="radio" value="X" name="since" value="X"/><label>X</label>
+                <input type="radio" value="1-6m" name="since" value="1"/><label>1-6months</label>
+                <input type="radio" value="6-12m" name="since" value="6"/><label>6-12months</label>            
+                <input type="radio" value="1y" name="since" value="1y"/><label>More than 1year</label>         
     </div>
     <div>
                 <label>Describe yourself in a view words :</label><br />
-                <textarea cols ="47" rows="6" name="describ"><?php if(isset($_POST['describ'])) echo $_POST['describ']; ?></textarea>
+                <textarea cols ="47" rows="6" name="describ"><?php restore('describ') ?></textarea>
     </div>
     <div>
                 <label>Send us a picture of you :</label>
-                <input type="file" value="Browse" name="picture"/>
+                <input type="file" value="<?php if(isset($_FILES['picture'])) echo $_FILES['picture']; ?>" name="picture"/>
     </div>
     <div>
                 Send it now : <input type="submit" value="OK">

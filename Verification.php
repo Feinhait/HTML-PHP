@@ -15,6 +15,10 @@ if(empty($_POST) == false) { //Teste si le champs est vide.
             $aerror[] = '<p>Veuillez renseigner une describ.<p>';
         }
         
+        if (isset($_POST['since']) == false) {
+
+        $aerror[] = '<p> Veuillez renseigner une duray.</p>';
+    }
 }
 
 if(isset($_POST['ddn']) == true) { //Teste si le champs est vide.
@@ -23,7 +27,7 @@ if(isset($_POST['ddn']) == true) { //Teste si le champs est vide.
             $aerror[] = '<p>Veuillez renseigner une birth date.<p>';
         }
 }
-        
+
 if(isset($_POST['situation']) == true) { //Teste si le champs est vide.
         
         if($_POST['situation'] == 'Select') {
@@ -31,5 +35,4 @@ if(isset($_POST['situation']) == true) { //Teste si le champs est vide.
         }
         
     }
-       if ($aerror)
 ?>
