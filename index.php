@@ -51,9 +51,9 @@ var_dump($_FILES);
     <div>
                 Since :
                 <input type="radio" value="X" name="since" value="X"/><label>X</label>
-                <input type="radio" value="1-6m" name="since" value="1"/><label>1-6months</label>
-                <input type="radio" value="6-12m" name="since" value="6"/><label>6-12months</label>            
-                <input type="radio" value="1y" name="since" value="1y"/><label>More than 1year</label>         
+                <input type="radio" value="1-6m" name="since" value="1-6"/><label>1-6months</label>
+                <input type="radio" value="6-12m" name="since" value="6-12"/><label>6-12months</label>            
+                <input type="radio" value="1y" name="since" value="1y+"/><label>More than 1year</label>         
     </div>
     <div>
                 <label>Describe yourself in a view words :</label><br />
